@@ -42,7 +42,7 @@ module Tapioca
       #: (String symbol, ?inherit: bool, ?namespace: Module) -> BasicObject
       def constantize(symbol, inherit: false, namespace: Object)
         namespace.const_get(symbol, inherit)
-      rescue NameError, LoadError, RuntimeError, ArgumentError, TypeError
+      rescue NameError, LoadError, RuntimeError, ArgumentError, TypeError, ActiveRecord::AdapterNotSpecified
         UNDEFINED_CONSTANT
       end
 
